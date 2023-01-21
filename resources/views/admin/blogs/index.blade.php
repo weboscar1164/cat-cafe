@@ -32,7 +32,7 @@
                             </p>
                         </td>
                         <td class="font-medium">{{ $blog->category->name }}</td>
-                        <td class="font-medium">高橋</td>
+                        <td class="font-medium">{{ $blog->user->name }}</td>
                         <td>{{ $blog->updated_at }}</td>
                         <td>
                             <div class="flex">

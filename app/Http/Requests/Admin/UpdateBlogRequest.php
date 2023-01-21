@@ -38,4 +38,12 @@ class UpdateBlogRequest extends FormRequest
             'cats.*' => ['distinct', 'exists:cats,id'],
         ];
     }
+
+    //属性名の翻訳
+    public function attributes()
+    {
+        return [
+            'category_id' => 'カテゴリ'
+        ];
+    }
 }

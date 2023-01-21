@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\Admin\StoreBlogRequest;
 use App\Http\Requests\Admin\UpdateBlogRequest;
 use App\Models\Blog;
@@ -23,7 +24,9 @@ class AdminBlogController extends Controller
     //ブログ投稿画面
     public function create()
     {
-        return view('admin.blogs.create');
+        $categories = Category::all();
+        $cats = Cat::all();
+        return view('admin.blogs.create', ['categories' => $categories, 'cats' => $cats]);
     }
 
     //ブログ投稿処理
@@ -35,6 +38,7 @@ class AdminBlogController extends Controller
         // $blog->save();
 
         $validated = $request->validated();
+        $validated['user_id'] = Auth::id();
         $validated['image'] = $request->file('image')->store('blogs', 'public');
         Blog::create($validated);
 
@@ -47,9 +51,9 @@ class AdminBlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Blog $blog)
     {
-        //
+        // 
     }
 
     //指定したIDのブログの編集画面
@@ -74,6 +78,7 @@ class AdminBlogController extends Controller
             $updateData['image'] = $request->file('image')->store('blogs', 'public');
         }
         $blog->category()->associate($updateData['category_id']);
+        $blog->user()->associate(Auth::id());
         $blog->cats()->sync($updateData['cats'] ?? []);
         $blog->update($updateData);
 
