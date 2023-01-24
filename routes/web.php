@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\AdminBlogController;
+use App\Http\Controllers\Admin\AdminContactController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\UserController;
 
@@ -41,6 +42,9 @@ Route::prefix('/admin')
 
                 //ログアウト
                 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+                //コンタクト
+                Route::resource('/contacts', AdminContactController::class);
             });
 
         //未ログイン時のみアクセス可能なルート
