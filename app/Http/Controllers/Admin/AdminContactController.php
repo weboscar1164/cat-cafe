@@ -37,7 +37,7 @@ class AdminContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Contacts::create($request);
     }
 
     /**

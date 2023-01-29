@@ -109,10 +109,12 @@
     <div class="mx-auto lg:ml-80">
         <!-- ▼▼▼▼共通ヘッダー(PC)▼▼▼▼　-->
         <section class="py-5 px-6 bg-white shadow hidden lg:block">
+            @Auth
             <div class="flex items-center justify-end">
                 <span class="text-sm text-gray-500">{{ \Auth::user()->name }}</span>
                 <img class="ml-3 w-10 h-10 rounded-full object-cover object-right" src="{{ asset('storage/'. \Auth::user()->image) }}" alt="">
             </div>
+            @endauth
         </section>
         <!-- ▲▲▲▲共通ヘッダー(PC)▲▲▲▲　-->
 
