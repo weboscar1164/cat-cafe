@@ -29,10 +29,11 @@ class ContactRequest extends FormRequest
             'phone' => ['nullable', 'regex:/^0(\d-?\d{4}|\d{2}-?\d{3}|\d{3}-?\d{2}|\d{4}-?\d|\d0-?\d{4})-?\d{4}$/'],
             'email' => ['required', 'email'],
             'body' => ['required', 'string', 'max:2000'],
+            'checked' => ['required', 'integer'],
         ];
     }
 
-    public function attributes() 
+    public function attributes()
     {
         return [
             'body' => 'お問い合わせ内容'
@@ -45,5 +46,4 @@ class ContactRequest extends FormRequest
             'phone.regex' => ':attributeを正しく入力してください'
         ];
     }
-
 }

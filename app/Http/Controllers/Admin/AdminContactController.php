@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use App\Http\Requests\Admin\UpdateContactRequest;
 
 class AdminContactController extends Controller
 {
@@ -69,9 +70,13 @@ class AdminContactController extends Controller
      * @param  \App\Models\contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, contact $contact)
+    public function update(UpdateContactRequest $request, $id)
     {
-        //
+        $contact = Contact::findOrFail($id);
+        $updateData = $request->validated();
+        $contact->update($updateData);
+
+        return to_route('admin.contacts.index')->with('success', 'お問い合わせのステータスを更新しました');
     }
 
     /**
