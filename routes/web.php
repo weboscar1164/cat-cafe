@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\AdminBlogController;
 use App\Http\Controllers\Admin\AdminContactController;
+use App\Http\Controllers\Admin\AdminCatController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\UserController;
 
@@ -45,6 +46,9 @@ Route::prefix('/admin')
 
                 //コンタクト
                 Route::resource('/contacts', AdminContactController::class);
+
+                //ねこ
+                Route::resource('/cat', AdminCatController::class);
             });
 
         //未ログイン時のみアクセス可能なルート
