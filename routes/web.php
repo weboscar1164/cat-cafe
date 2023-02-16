@@ -5,6 +5,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\AdminBlogController;
 use App\Http\Controllers\Admin\AdminContactController;
 use App\Http\Controllers\Admin\AdminCatController;
+use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\UserController;
 
@@ -49,6 +50,9 @@ Route::prefix('/admin')
 
                 //ねこ
                 Route::resource('/cat', AdminCatController::class);
+
+                //カテゴリ
+                Route::resource('/category', AdminCategoryController::class);
             });
 
         //未ログイン時のみアクセス可能なルート

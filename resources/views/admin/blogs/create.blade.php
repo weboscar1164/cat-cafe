@@ -49,8 +49,11 @@
                             <select id="category" class="appearance-none block pl-4 pr-8 py-3 mb-2 text-sm bg-white border rounded" name="category_id">
                                 <option value="">選択してください</option>
                                 @foreach($categories as $category)
+                                @if ($loop->index !== 0)
                                 <option value="{{ $category->id }}" @if($category->id == old('category_id')) selected @endif>{{ $category->name }}</option>
+                                @endif
                                 @endforeach
+                                <option value="1" @if(1 == old('category_id')) selected @endif>その他</option>
                             </select>
                             <div class="pointer-events-none transform -translate-x-full flex items-center px-2 text-gray-500">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20">
@@ -58,7 +61,7 @@
                                 </svg>
                             </div>
                         </div>
-                    <button type="submit" class="py-2 px-3 text-xs text-white font-semibold bg-indigo-500 rounded-md">カテゴリ登録</button>
+                    <button onclick="toggleModal('category-create-modal')" type="button" class="py-2 px-3 text-xs text-white font-semibold bg-indigo-500 rounded-md">カテゴリ登録</button>
 
                     </div>
 
@@ -80,6 +83,7 @@
     </div>
 
    <x-add-cat-modal :cat="$cat"/>
+   <x-add-category-modal :category="$category"/>
     
 
       
