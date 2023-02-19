@@ -38,3 +38,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
+//modal
+function toggleModal(modalID) {
+    document.getElementById(modalID).classList.toggle("hidden");
+    document.getElementById(modalID + "-backdrop").classList.toggle("hidden");
+    document.getElementById(modalID).classList.toggle("frex");
+    document.getElementById(modalID + "-backdrop").classList.toggle("frex");
+}

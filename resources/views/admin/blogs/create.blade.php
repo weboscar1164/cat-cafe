@@ -116,11 +116,7 @@
         }
     })
 
-    function toggleModal(modalID) {
-        document.getElementById(modalID).classList.toggle("hidden");
-        document.getElementById(modalID + "-backdrop").classList.toggle("hidden");
-        document.getElementById(modalID).calssList.toggle("frex");
-        document.getElementById(modalID + "-backdrop").classList.toggle("frex");
-    }
+    validate_form();
+    
 </script>
 @endsection
