@@ -92,50 +92,6 @@
 <script>
     // ねこちゃんたち追加
     $('#js-pulldown').select2();
-
-    // 画像プレビュー
-    // document.getElementById('image').addEventListener('change', e => {
-    //     const previewImageNode = document.getElementById('previewImage')
-    //     const fileReader = new FileReader()
-    //     fileReader.onload = () => previewImageNode.src = fileReader.result
-    //     if (e.target.files.length > 0) {
-    //         fileReader.readAsDataURL(e.target.files[0])
-    //     } else {
-    //         previewImageNode.src = previewImageNode.dataset.noimage
-    //     }
-    // })
-
-    // document.getElementById('catImage').addEventListener('change', e => {
-    //     const previewImageNode = document.getElementById('catPreviewImage')
-    //     const fileReader = new FileReader()
-    //     fileReader.onload = () => previewImageNode.src = fileReader.result
-    //     if (e.target.files.length > 0) {
-    //         fileReader.readAsDataURL(e.target.files[0])
-    //     } else {
-    //         previewImageNode.src = previewImageNode.dataset.noimage
-    //     }
-    // })
-
-    // function modal_toggle() {
-
-    //     const $imageInputs = document.querySelectorAll('.image-input');
-    
-    //     for(const $imageInput of $imageInputs) {
-    
-    //         $imageInput.addEventListener('change', e => {
-    //             const $previewImage = $imageInput.querySelector('.preview-image')
-    //             const $selectedImage = $imageInput.querySelector('.selected-image')
-    //             const fileReader = new FileReader()
-    //             fileReader.onload = () => $previewImage.src = fileReader.result
-    //             if (e.target.files.length > 0) {
-    //                 fileReader.readAsDataURL(e.target.files[0])
-    //             } else {
-    //                 $previewImage.src = $previewImage.dataset.noimage
-    //             }
-    //         })
-    //     }
-    // }
-
     imgPreview();
     validateForm();
     

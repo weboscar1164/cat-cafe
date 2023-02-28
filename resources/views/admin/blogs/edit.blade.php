@@ -31,11 +31,11 @@
                         <input id="title" class="block w-full px-4 py-3 mb-2 text-sm bg-white border rounded" type="text" name="title" value="{{ old('title', $blog->title) }}">
                     </div>
 
-                    <div class="mb-6">
+                    <div class="mb-6 image-input">
                         <label class="block text-sm font-medium mb-2" for="image">画像</label>
                         <div class="flex items-end">
-                            <img id="previewImage" src="{{ asset('storage/'.$blog->image) }}" data-noimage="{{ asset('storage/'.$blog->image) }}" alt="" class="rounded shadow-md w-64">
-                            <input id="image" class="block w-full px-4 py-3 mb-2" type="file" accept='image/*' name="image">
+                            <img id="previewImage" src="{{ asset('storage/'.$blog->image) }}" data-noimage="{{ asset('storage/'.$blog->image) }}" alt="" class="preview-image rounded shadow-md w-64">
+                            <input id="image" class="selected-image block w-full px-4 py-3 mb-2" type="file" accept='image/*' name="image">
                         </div>
                     </div>
 
@@ -86,18 +86,6 @@
 <script>
     // ねこちゃんたち追加
     $('#js-pulldown').select2();
-
-    // 画像プレビュー
-    document.getElementById('image').addEventListener('change', e => {
-        const previewImageNode = document.getElementById('previewImage')
-        const fileReader = new FileReader()
-        fileReader.onload = () => previewImageNode.src = fileReader.result
-        if (e.target.files.length > 0) {
-            fileReader.readAsDataURL(e.target.files[0])
-        } else {
-            previewImageNode.src = previewImageNode.dataset.noimage
-        }
-    })
 
     imgPreview();
     validateForm();
