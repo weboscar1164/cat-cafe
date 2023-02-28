@@ -7,7 +7,7 @@ use App\Http\Controllers\Admin\AdminContactController;
 use App\Http\Controllers\Admin\AdminCatController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AuthController;
-use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\AdminUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 
 Route::get('/', function () {
     return view('index');
@@ -53,6 +54,10 @@ Route::prefix('/admin')
 
                 //カテゴリ
                 Route::resource('/category', AdminCategoryController::class);
+
+
+                //ユーザー管理
+                Route::resource('/users', AdminUserController::class);
             });
 
         //未ログイン時のみアクセス可能なルート
@@ -61,11 +66,11 @@ Route::prefix('/admin')
                 //認証
                 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
                 Route::post('/login', [AuthController::class, 'login']);
-            });
 
-        //ユーザー管理　ログイン状態に関わらずアクセスできる
-        Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
-        Route::post('/users', [UserController::class, 'store'])->name('users.store');
+                //ユーザー登録
+                Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+                Route::post('/register', [AuthController::class, 'register']);
+            });
     });
 
 Route::get('/phpinfo', function () {

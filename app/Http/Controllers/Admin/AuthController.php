@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use App\Http\Requests\Admin\StoreUserRequest;
 
 class AuthController extends Controller
 {
@@ -51,5 +54,28 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
 
         return redirect()->route('admin.login');
+    }
+
+    public function showRegisterForm()
+    {
+        return view('admin.register');
+    }
+
+    public function register(StoreUserRequest $request)
+    {
+        $validated = $request->validated();
+
+        $user = new User([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'introduction' => $validated['introduction'],
+            'image' => $request->file('image')->store('users', 'public'),
+            'password' => Hash::make($validated['password']),
+        ]);
+        $user->save();
+
+        Auth::login($user);
+        $request->session()->regenerate();
+        return redirect('/admin/blogs')->with('success', 'ユーザーを登録しました');
     }
 }
