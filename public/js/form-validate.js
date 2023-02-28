@@ -1,4 +1,4 @@
-function validate_form() {
+function validateForm() {
     const $inputs = document.querySelectorAll('.validate-input');
     const $forms = document.querySelectorAll('.validate-form');
 

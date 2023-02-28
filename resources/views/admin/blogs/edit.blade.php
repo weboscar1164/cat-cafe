@@ -59,6 +59,7 @@
                                 </svg>
                             </div>
                         </div>
+                        <button onclick="toggleModal('category-create-modal')" type="button" class="py-2 px-3 text-xs text-white font-semibold bg-indigo-500 rounded-md">カテゴリ登録</button>
                     </div>
 
                     <div class="mb-6">
@@ -72,8 +73,14 @@
                     </div>
                 </div>
             </form>
+            <div class="px-6 mb-6">
+                <button onclick="toggleModal('tag-create-modal')" type="button"class="py-2 px-3 text-xs text-white font-semibold bg-indigo-500 rounded-md">新しいねこを登録</button>
+            </div>
         </div>
     </div>
+
+    <x-add-cat-modal :cat="$cat"/>
+    <x-add-category-modal :category="$category"/>
 </section>
 
 <script>
@@ -91,5 +98,8 @@
             previewImageNode.src = previewImageNode.dataset.noimage
         }
     })
+
+    imgPreview();
+    validateForm();
 </script>
 @endsection

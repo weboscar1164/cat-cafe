@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
     <script src="/js/main.js"></script>
-<script src="/js/form-validate.js"></script>
+    <script src="/js/form-validate.js"></script>
+    <script src="/js/img-preview.js"></script>
     <script src="/js/admin/jquery-3.6.0.slim.min.js"></script>
     <script src="/js/admin/select2.min.js"></script>
     <!-- Scripts -->
