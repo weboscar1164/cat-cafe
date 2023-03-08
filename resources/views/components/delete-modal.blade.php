@@ -4,8 +4,9 @@
         <div class="relative w-auto my-6 mx-auto max-w-3xl">
           <!--content-->
           <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-            <form class="validate-form" action="{{ route('admin.category.store') }}" method="POST" enctype="multipart/form-data">
+            <form id="delete-form" action="" method="POST" enctype="multipart/form-data">
             @csrf
+            @method('DELETE')
                 <!--header-->
                 <div class="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
                     <h3 class="text-3xl font-semibold">
@@ -19,14 +20,15 @@
                 <!--body-->
                 <div class="relative p-6 flex-auto">
                     <p>削除します。よろしいですか？</p>
+                    <p id="test-target"></p>
                 </div>
                 <!--footer-->
                 <div class="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
                     <div class="px-3 mb-6">
-                        <button onclick="toggleModal('delete-modal')" type="button" class="py-2 px-3 text-xs text-white font-semibold bg-red-500 rounded-md">閉じる</button>
+                        <button type="submit" class="py-2 px-3 text-xs text-white font-semibold bg-red-500 rounded-md">削除</button>
                     </div>
                     <div class="px-3 mb-6">
-                        <button type="submit" class="button-disabled py-2 px-3 text-xs text-white font-semibold bg-indigo-500 rounded-md">削除</button>
+                        <button onclick="toggleModal('delete-modal')" type="button" class="py-2 px-3 text-xs text-white font-semibold bg-indigo-500 rounded-md">閉じる</button>
                     </div>
                 </div>
             </form>

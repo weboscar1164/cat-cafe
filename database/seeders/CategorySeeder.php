@@ -20,7 +20,6 @@ class CategorySeeder extends Seeder
             ['name' => '日常', 'created_at' => $now, 'updated_at' => $now],
             ['name' => '成長', 'created_at' => $now, 'updated_at' => $now],
             ['name' => 'グッズ', 'created_at' => $now, 'updated_at' => $now],
-            ['name' => 'その他', 'created_at' => $now, 'updated_at' => $now],
         ]);
     }
 }

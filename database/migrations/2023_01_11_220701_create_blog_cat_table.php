@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('blog_cat', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('blog_id')->constrained();
-            $table->foreignId('cat_id')->constrained();
+            $table->foreignId('blog_id')->constrained()->onDelete('cascade');
+            $table->foreignId('cat_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

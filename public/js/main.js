@@ -41,8 +41,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //modal
 function toggleModal(modalID) {
-    document.getElementById(modalID).classList.toggle("hidden");
-    document.getElementById(modalID + "-backdrop").classList.toggle("hidden");
-    document.getElementById(modalID).classList.toggle("frex");
-    document.getElementById(modalID + "-backdrop").classList.toggle("frex");
+    const $targetModal = document.getElementById(modalID);
+    const $targetModalBackdrop = document.getElementById(modalID + "-backdrop");
+
+    $targetModal.classList.toggle("hidden");
+    $targetModalBackdrop.classList.toggle("hidden");
+    $targetModal.classList.toggle("frex");
+    $targetModalBackdrop.classList.toggle("frex");
+
+    
+}
+
+function deleteModalControl(value) {
+        const testTarget = document.getElementById("test-target");
+        const deleteForm = document.getElementById("delete-form");
+    testTarget.innerHTML = value;
+    deleteForm.action = value
 }
