@@ -65,15 +65,13 @@
                         </button>
 
                     </form>
-                    <form class="inline-block" action="{{ route('admin.contacts.destroy', ['contact' => $contact]) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button
-                            class="py-2 px-3 text-xs text-white font-semibold bg-red-500 rounded-md">削除</button>
-                    </form>
+                        <button onclick="toggleModal('delete-modal'); deleteModalControl('{{ route('admin.contacts.destroy', ['contact' => $contact]) }}');" class="py-2 px-3 text-xs text-white font-semibold bg-red-500 rounded-md">
+                            削除
+                        </button>
                 </div>
             </div>
         </div>
     </div>
+    <x-delete-modal/>
 </section>
 @endsection

@@ -6,15 +6,13 @@ use Illuminate\View\Component;
 
 class deleteModal extends Component
 {
-    public array $options;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(array $options)
+    public function __construct()
     {
-        $this->options = $options;
     }
 
     /**

@@ -53,8 +53,7 @@ function toggleModal(modalID) {
 }
 
 function deleteModalControl(value) {
-        const testTarget = document.getElementById("test-target");
-        const deleteForm = document.getElementById("delete-form");
-    testTarget.innerHTML = value;
+    const testTarget = document.getElementById("test-target");
+    const deleteForm = document.getElementById("delete-form");
     deleteForm.action = value
 }

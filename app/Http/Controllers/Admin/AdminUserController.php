@@ -94,8 +94,11 @@ class AdminUserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        //
+        $contact = User::findOrFail($id);
+        $contact->delete();
+
+        return to_route('admin.users.index')->with('success', 'メッセージを削除しました。');
     }
 }

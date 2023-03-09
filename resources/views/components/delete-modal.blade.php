@@ -20,7 +20,6 @@
                 <!--body-->
                 <div class="relative p-6 flex-auto">
                     <p>削除します。よろしいですか？</p>
-                    <p id="test-target"></p>
                 </div>
                 <!--footer-->
                 <div class="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">

@@ -16,7 +16,7 @@ class AdminContactController extends Controller
      */
     public function index()
     {
-        $contacts = Contact::latest('updated_at')->paginate(10);
+        $contacts = Contact::latest('created_at')->paginate(10);
         return view('admin.contacts.index', ['contacts' => $contacts]);
     }
 

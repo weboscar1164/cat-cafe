@@ -9,9 +9,7 @@
                 @method('PUT')
                 <div class="flex px-6 pb-4 border-b">
                     <h3 class="text-xl font-bold">ブログ更新</h3>
-                    <div class="ml-auto">
-                        <button type="submit" class="py-2 px-3 text-xs text-white font-semibold bg-indigo-500 rounded-md">更新</button>
-                    </div>
+                   
                 </div>
 
                 <div class="pt-4 px-6">
@@ -72,15 +70,22 @@
                         </select>
                     </div>
                 </div>
+                <div class="px-6 mb-6">
+                    <button onclick="toggleModal('tag-create-modal')" type="button"class="py-2 px-3 text-xs text-white font-semibold bg-indigo-500 rounded-md">新しいねこを登録</button>
+                </div>
+                <div class="flex items-center justify-end px-6 ml-auto">
+                        <button type="button" onclick="toggleModal('delete-modal'); deleteModalControl('{{ route('admin.blogs.destroy', ['blog' => $blog]) }}');" class="mr-3 py-2 px-3 text-xs text-white font-semibold bg-red-500 rounded-md block">削除</button>
+                        <button type="submit" class="py-2 px-3 text-xs text-white font-semibold bg-indigo-500 rounded-md block">更新</button>
+                </div>
             </form>
-            <div class="px-6 mb-6">
-                <button onclick="toggleModal('tag-create-modal')" type="button"class="py-2 px-3 text-xs text-white font-semibold bg-indigo-500 rounded-md">新しいねこを登録</button>
-            </div>
         </div>
     </div>
 
+    <!-- ▼▼▼▼モーダル▼▼▼▼　-->
     <x-add-cat-modal :cat="$cat"/>
     <x-add-category-modal :category="$category"/>
+    <x-delete-modal/>
+    <!-- ▲▲▲▲モーダル▲▲▲▲　-->
 </section>
 
 <script>
